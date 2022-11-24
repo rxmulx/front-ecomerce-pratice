@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(150, 78, 217, 0.837);
+    height: 60px;
+    text-align: center;
+    &__div {
+        
+        & &__img {
+            height: 30px;
+        }
+    }
+}
