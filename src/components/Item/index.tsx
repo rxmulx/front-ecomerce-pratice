@@ -1,22 +1,17 @@
+import { useContext } from 'react'
 import carinho from '../../../assets/img/Carrinho.png'
+import MyContext from '../context/Mycontext'
 import './index.scss'
-
-
-type PRODUCT_CART_TYPE = {
-    qtd: string ,
-    id_product: number,
-}
 
 interface PRODUCT_PROPS {
     id: number,
     name: string,
     img: string,
-    price: number,
-    productCart: PRODUCT_CART_TYPE[],
-    setProductCart: (_:any) => void
+    price: number
 }
 
-export default function Item({ id, img, name, price, productCart, setProductCart }: PRODUCT_PROPS) {
+export default function Item({ id, img, name, price}: PRODUCT_PROPS) {
+    const {productCart, setProductCart} = useContext(MyContext)
 
     const qtd_product = productCart.filter((item) => item.id_product == id )
 
@@ -44,10 +39,6 @@ export default function Item({ id, img, name, price, productCart, setProductCart
                 price: price,
             }
         }
-        console.log({
-            product,
-            productCart
-        })
         setProductCart([...product_distinct, product])
     }
 

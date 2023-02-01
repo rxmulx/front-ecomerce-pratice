@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
 import headerimg from '../../../assets/img/Carrinho.png'
-
 import './index.scss'
-
-import Item from '../../components/Item'
-
 import Modal from 'react-modal'
+import MyContext from '../context/Mycontext';
 Modal.setAppElement('#root');
 
-interface HEADER_PROPS {
-    productCart: any,
-}
-
-export function Header({productCart}: HEADER_PROPS) {
+export function Header() {
     const [ isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false)
+    const {productCart} = useContext(MyContext)
 
     function handleOpenNewTransactionModal() {
         setIsNewTransactionModalOpen(true);
@@ -55,7 +49,6 @@ export function Header({productCart}: HEADER_PROPS) {
                     <tbody>
                         {
                             productCart.map((item:any) => {
-                                console.log({item})
                                 return(
                                     <tr>
                                         <td>{item.name}</td>

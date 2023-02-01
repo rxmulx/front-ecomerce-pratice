@@ -27,12 +27,7 @@ interface PRODUCT_LIST_PROPS {
     product_price: number
 }
 
-interface SHELF_PROPS {
-    productCart: any,
-    setProductCart: (_:any) => void
-}
-
-export default function Shelf({productCart, setProductCart}: SHELF_PROPS) {
+export default function Shelf() {
 
     function RenderItems(item: PRODUCT_LIST_PROPS ) {
         return(
@@ -42,8 +37,6 @@ export default function Shelf({productCart, setProductCart}: SHELF_PROPS) {
             key={item.id}
             id={item.id}
             price={item.product_price}
-            productCart={productCart}
-            setProductCart={setProductCart}
         />
         )
     }
